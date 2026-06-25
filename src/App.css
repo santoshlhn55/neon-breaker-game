@@ -1,0 +1,252 @@
+/* ============================================================
+   APP.CSS — Main layout and menu styles
+   ============================================================ */
+
+.app {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(ellipse at 50% 30%, #111122 0%, #050508 70%);
+  position: relative;
+  overflow: hidden;
+}
+
+/* ---- Ambient background particles ---- */
+.app::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: 
+    radial-gradient(2px 2px at 20% 30%, rgba(0, 240, 255, 0.15), transparent),
+    radial-gradient(2px 2px at 80% 20%, rgba(204, 0, 255, 0.15), transparent),
+    radial-gradient(2px 2px at 50% 70%, rgba(255, 0, 102, 0.1), transparent),
+    radial-gradient(1px 1px at 10% 80%, rgba(0, 240, 255, 0.1), transparent),
+    radial-gradient(1px 1px at 90% 60%, rgba(204, 0, 255, 0.1), transparent);
+  animation: drift 20s linear infinite;
+  pointer-events: none;
+}
+
+@keyframes drift {
+  0% { transform: translate(0, 0); }
+  100% { transform: translate(-5%, -3%); }
+}
+
+/* ============================================================
+   MAIN MENU
+   ============================================================ */
+.main-menu {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 3rem 2.5rem;
+  background: var(--surface);
+  border-radius: 20px;
+  border: 1px solid var(--surface-border);
+  box-shadow: 0 0 60px rgba(0, 240, 255, 0.08), 0 30px 60px rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(20px);
+  position: relative;
+  z-index: 1;
+  max-width: 420px;
+  width: 90%;
+}
+
+.main-menu-stats {
+  display: flex;
+  gap: 2rem;
+  margin-bottom: 2rem;
+  font-size: 0.8rem;
+  color: var(--text-dim);
+}
+
+.main-menu-stats span {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.2rem;
+}
+
+.main-menu-stats .stat-value {
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: var(--cyan);
+}
+
+/* ---- Player Info (Level, XP, Coins) ---- */
+.main-menu-player-info {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  font-size: 0.8rem;
+  color: var(--text-dim);
+}
+
+.level-badge {
+  font-size: 1rem;
+  font-weight: 800;
+  color: var(--cyan);
+  background: rgba(0, 240, 255, 0.1);
+  border: 1px solid rgba(0, 240, 255, 0.3);
+  border-radius: 8px;
+  padding: 2px 10px;
+  text-shadow: 0 0 8px rgba(0, 240, 255, 0.4);
+}
+
+.xp-bar-text {
+  font-size: 0.75rem;
+  color: var(--text-dim);
+}
+
+.coins-display {
+  font-weight: 700;
+  color: var(--legendary);
+  text-shadow: 0 0 8px rgba(255, 170, 0, 0.3);
+}
+
+
+/* ============================================================
+   GAME SCREEN
+   ============================================================ */
+.game-screen {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #000;
+}
+
+.game-screen canvas {
+  display: block;
+}
+
+/* ---- HUD Overlay ---- */
+.hud {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 10px 16px;
+  pointer-events: none;
+  z-index: 10;
+  font-size: 0.8rem;
+}
+
+.hud-left, .hud-right {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.hud-right {
+  align-items: flex-end;
+}
+
+.hud-wave {
+  font-weight: 800;
+  font-size: 1rem;
+  color: #fff;
+  text-shadow: 0 0 10px rgba(255,255,255,0.3);
+}
+
+.hud-score {
+  color: var(--cyan);
+  font-weight: 700;
+  text-shadow: 0 0 8px rgba(0, 240, 255, 0.4);
+}
+
+.hud-balls {
+  color: var(--text-dim);
+  font-size: 0.75rem;
+}
+
+.hud-hero {
+  font-size: 0.7rem;
+  color: var(--text-dim);
+}
+
+/* Ultimate bar */
+.ultimate-bar {
+  position: absolute;
+  bottom: 60px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 120px;
+  height: 6px;
+  background: rgba(255,255,255,0.1);
+  border-radius: 3px;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 10;
+}
+
+.ultimate-bar-fill {
+  height: 100%;
+  border-radius: 3px;
+  transition: width 0.3s ease;
+}
+
+.ultimate-btn {
+  position: absolute;
+  bottom: 72px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: linear-gradient(135deg, rgba(255,255,255,0.15), rgba(255,255,255,0.05));
+  border: 1px solid rgba(255,255,255,0.2);
+  border-radius: 50%;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  cursor: pointer;
+  z-index: 15;
+  transition: all 0.2s ease;
+  backdrop-filter: blur(4px);
+}
+
+.ultimate-btn.ready {
+  border-color: var(--legendary);
+  box-shadow: 0 0 20px rgba(255, 170, 0, 0.4);
+  animation: pulse-ult 1.5s infinite;
+}
+
+@keyframes pulse-ult {
+  0%, 100% { box-shadow: 0 0 20px rgba(255, 170, 0, 0.4); }
+  50% { box-shadow: 0 0 35px rgba(255, 170, 0, 0.7); }
+}
+
+/* ---- Active Upgrades Display ---- */
+.active-upgrades {
+  position: absolute;
+  top: 45px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 4px;
+  pointer-events: none;
+  z-index: 10;
+  flex-wrap: wrap;
+  justify-content: center;
+  max-width: 90%;
+}
+
+.active-upgrade-pip {
+  font-size: 0.65rem;
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 4px;
+  padding: 1px 4px;
+  backdrop-filter: blur(2px);
+}

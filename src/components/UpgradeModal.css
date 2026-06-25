@@ -1,0 +1,142 @@
+/* ============================================================
+   UPGRADE MODAL.CSS — Upgrade selection overlay styles
+   ============================================================ */
+
+.upgrade-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(12px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 50;
+  animation: fadeIn 0.3s ease-out;
+  padding: 1.5rem;
+}
+
+.upgrade-header {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.upgrade-header h2 {
+  font-size: 1.6rem;
+  font-weight: 900;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #fff;
+  text-shadow: 0 0 15px rgba(0, 240, 255, 0.4);
+  margin-bottom: 0.3rem;
+}
+
+.upgrade-header p {
+  font-size: 0.8rem;
+  color: var(--text-dim);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.upgrade-cards {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  max-width: 500px;
+  width: 100%;
+}
+
+.upgrade-card {
+  flex: 1;
+  min-width: 130px;
+  max-width: 160px;
+  background: rgba(15, 15, 25, 0.9);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  padding: 1.2rem 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  position: relative;
+  overflow: hidden;
+  backdrop-filter: blur(8px);
+}
+
+.upgrade-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  border-radius: 16px 16px 0 0;
+  transition: all 0.25s ease;
+}
+
+/* Rarity colors */
+.upgrade-card.rarity-Common::before { background: #888888; }
+.upgrade-card.rarity-Rare::before { background: #0088ff; }
+.upgrade-card.rarity-Epic::before { background: #cc00ff; }
+.upgrade-card.rarity-Legendary::before { background: #ffaa00; }
+.upgrade-card.rarity-Mythic::before { background: #ff0066; }
+
+.upgrade-card.rarity-Common { border-color: rgba(136, 136, 136, 0.3); }
+.upgrade-card.rarity-Rare { border-color: rgba(0, 136, 255, 0.3); }
+.upgrade-card.rarity-Epic { border-color: rgba(204, 0, 255, 0.3); }
+.upgrade-card.rarity-Legendary { border-color: rgba(255, 170, 0, 0.4); box-shadow: 0 0 20px rgba(255, 170, 0, 0.1); }
+.upgrade-card.rarity-Mythic { border-color: rgba(255, 0, 102, 0.4); box-shadow: 0 0 25px rgba(255, 0, 102, 0.15); }
+
+.upgrade-card:hover {
+  transform: translateY(-6px) scale(1.03);
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+.upgrade-card.rarity-Common:hover { box-shadow: 0 8px 25px rgba(136, 136, 136, 0.2); }
+.upgrade-card.rarity-Rare:hover { box-shadow: 0 8px 25px rgba(0, 136, 255, 0.25); }
+.upgrade-card.rarity-Epic:hover { box-shadow: 0 8px 25px rgba(204, 0, 255, 0.25); }
+.upgrade-card.rarity-Legendary:hover { box-shadow: 0 8px 30px rgba(255, 170, 0, 0.35); }
+.upgrade-card.rarity-Mythic:hover { box-shadow: 0 8px 30px rgba(255, 0, 102, 0.35); }
+
+.upgrade-card:active {
+  transform: translateY(-2px) scale(0.98);
+}
+
+.upgrade-icon {
+  font-size: 2.2rem;
+  margin-bottom: 0.6rem;
+  filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.3));
+}
+
+.upgrade-rarity-badge {
+  font-size: 0.55rem;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  padding: 2px 8px;
+  border-radius: 4px;
+  margin-bottom: 0.5rem;
+}
+
+.upgrade-card.rarity-Common .upgrade-rarity-badge { background: rgba(136, 136, 136, 0.2); color: #888888; }
+.upgrade-card.rarity-Rare .upgrade-rarity-badge { background: rgba(0, 136, 255, 0.15); color: #0088ff; }
+.upgrade-card.rarity-Epic .upgrade-rarity-badge { background: rgba(204, 0, 255, 0.15); color: #cc00ff; }
+.upgrade-card.rarity-Legendary .upgrade-rarity-badge { background: rgba(255, 170, 0, 0.15); color: #ffaa00; }
+.upgrade-card.rarity-Mythic .upgrade-rarity-badge { background: rgba(255, 0, 102, 0.15); color: #ff0066; }
+
+.upgrade-name {
+  font-size: 0.85rem;
+  font-weight: 800;
+  color: #fff;
+  text-align: center;
+  margin-bottom: 0.3rem;
+}
+
+.upgrade-desc {
+  font-size: 0.65rem;
+  color: var(--text-dim);
+  text-align: center;
+  line-height: 1.4;
+}

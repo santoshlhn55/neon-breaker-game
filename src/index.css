@@ -1,0 +1,42 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap');
+@import './styles/UI.css';
+
+:root {
+  --bg: #050508;
+  --surface: rgba(15, 15, 25, 0.85);
+  --surface-border: rgba(255, 255, 255, 0.08);
+  --text: #ffffff;
+  --text-dim: #888899;
+  --cyan: #00f0ff;
+  --magenta: #cc00ff;
+  --fire: #ff4400;
+  --ice: #00ccff;
+  --lightning: #aa00ff;
+  --poison: #00ff66;
+  --void: #6600cc;
+  --mythic: #ff0066;
+  --legendary: #ffaa00;
+  --epic: #cc00ff;
+  --rare: #0088ff;
+  --common: #888888;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body, #root {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: none;
+  -webkit-tap-highlight-color: transparent;
+}

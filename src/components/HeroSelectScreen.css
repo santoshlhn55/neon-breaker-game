@@ -1,0 +1,33 @@
+/* ============================================================
+   HERO SELECT SCREEN.CSS — Hero selection styles
+   ============================================================ */
+
+.hero-coins-display {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--legendary);
+  margin-bottom: 1rem;
+  text-align: center;
+  text-shadow: 0 0 10px rgba(255, 170, 0, 0.3);
+}
+
+.hero-card .select-icon {
+  border: 1px solid;
+  font-size: 2rem;
+}
+
+.hero-stats {
+  display: flex;
+  gap: 0.6rem;
+  margin-top: 0.4rem;
+  font-size: 0.65rem;
+  color: var(--text-dim);
+  flex-wrap: wrap;
+}
+
+.hero-unlock-info {
+  margin-top: 0.4rem;
+  font-size: 0.7rem;
+  color: var(--legendary);
+  font-weight: 600;
+}
